@@ -5,12 +5,23 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-# Rails.application.config.middleware.insert_before 0, Rack::Cors do
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins 'https://localhost:3000'
+
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      credentials: true
+  end
+
+  #本番環境用のオリジン設定
 #   allow do
-#     origins 'example.com'
-#
+#     origins 'https:<自身が設定するアプリのURL>'
+
 #     resource '*',
-#       headers: :any,
-#       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-#   end
+#         headers: :any,
+#         methods: [:get, :post, :put, :patch, :delete, :options, :head],
+#         credentials: true
 # end
+end

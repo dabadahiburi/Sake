@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './style/index.css';
 import reportWebVitals from './reportWebVitals';
 import Header from './components/header/Header';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

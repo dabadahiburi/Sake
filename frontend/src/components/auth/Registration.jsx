@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 export default function Registration(props) {
@@ -8,7 +9,7 @@ export default function Registration(props) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
   const handleSubmit = (event) => {
-    axios.post("http://localhost:3001/signup",
+    axios.post("http://localhost:3000/signup",
             {
                 user: {
                     email: email,
@@ -28,7 +29,7 @@ export default function Registration(props) {
   }
 
   return (
-    <div className="">
+    <div>
       <p>New Registration</p>
 
       {/* 追加 */}

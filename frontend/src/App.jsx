@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import  { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Home from './components/Home'
@@ -25,19 +26,19 @@ export default function App() {
   })
 
   const checkLoginStatus = () => {
-    axios.get("http://localhost:3001/logged_in ", { withCredentials: true })
-      
+    axios.get("http://localhost:3000/logged_in", { withCredentials: true })
+
       .then(response => {
-        if (response.data.logged_in && loggedInStatus ==="未ログイン") {
+        if (response.data.logged_in && loggedInStatus === "未ログイン") {
       setLoggedInStatus("ログイン中")
       setUser(response.data.user)
-        } else if (!response.data.logged_in && loggedInStatus ==="ログイン中") {
+        } else if (!response.data.logged_in && loggedInStatus === "ログイン中") {
           setLoggedInStatus("未ログイン")
           setUser({})
         }
       })
       .catch (error => {
-        console.log("ログインエラー",error)
+        console.log("ログインエラー", error)
     })
   }
 
@@ -50,10 +51,13 @@ export default function App() {
           <Route
             exact path={"/"}
             render={props => (
-              <Home {...props} handleLogin={handleLogin}
-                                handleLogout={handleLogout}
-                              loggedInStatus={loggedInStatus} />
-              )}/>
+              <Home {...props}
+                handleLogin={handleLogin}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedInStatus}
+              />
+            )}
+          />
 
           <Route
             exact path={"/"}

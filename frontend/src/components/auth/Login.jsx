@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 export default function Login(props) {
@@ -6,7 +7,7 @@ export default function Login(props) {
     const [password, setPassword] = useState("")
 
     const handleSubmit = (event) => {
-        axios.post("http://localhost:3001/login",
+        axios.post("http://localhost:3000/login",
             {
                 user: {
                     email: email,
@@ -15,6 +16,7 @@ export default function Login(props) {
             },
             { withCredentials: true }
         ).then(response => {
+            // console.log("login response: ", response)
           if (response.data.logged_in) {
                 props.handleSuccessfulAuthentication(response.data)
             }

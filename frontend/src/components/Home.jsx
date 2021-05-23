@@ -30,7 +30,7 @@ export default function Home(props) {
             <button onClick={handleLogoutClick}>ログアウト</button>
 
             <Registration handleSuccessfulAuthentication={handleSuccessfulAuthentication} />
-            <Login handleSuccessfulAuthentication={handleSuccessfulAuthentication }/>
+            <Login handleSuccessfulAuthentication={handleSuccessfulAuthentication}/>
         </div>
     )
 }
